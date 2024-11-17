@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo|List|App</title>
+  </head>
+  <body>
+    <div class="container">
+      <main class="main">
+        <header class="header">
+          <h1>TODO</h1>
+          <img
+            class="light-dark__btn"
+            src="images/icon-sun.svg"
+            alt="an icon logo of the sun"
+          />
+        </header>
+
+        <!--section 1-->
+        <section class="section-input">
+          <label for="add-task__checkbox"></label>
+          <input type="checkbox" id="add-task__checkbox" />
+          <label for="input-text__field"></label>
+          <input
+            class="input-text__field"
+            type="text"
+            name="input-text__field"
+            id="input-text__field"
+            placeholder="Create a new todo..."
+          />
+        </section>
+
+        <!--section 2 todo list container-->
+        <section class="todo-lists__container"></section>
+      </main>
+
+      <!--section 3-->
+      <section class="section-options">
+        <p><span class="todo-count">0</span>items left</p>
+        <div class="option-selection__desktop">
+          <p class="option-select__all">All</p>
+          <p class="option-select__active">Active</p>
+          <p class="option-select__completed">Completed</p>
+        </div>
+        <p class="option-clear__completed">Clear Completed</p>
+      </section>
+      <div class="option-selection__mobile">
+        <p class="option-select__all">All</p>
+        <p class="option-select__active">Active</p>
+        <p class="option-select__completed">Completed</p>
+      </div>
+      <footer class="footer">
+        <p>Drag and drop to reorder list</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
