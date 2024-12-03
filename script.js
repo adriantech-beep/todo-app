@@ -166,7 +166,6 @@ class TodoApp {
     this.taskCount++;
     this.updateTaskCount();
     this.inputTextField.value = "";
-
     this.updateTodoListTheme();
   }
 
