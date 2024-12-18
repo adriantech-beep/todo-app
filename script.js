@@ -48,6 +48,7 @@ class TodoApp {
     this.darkTheme = this.darkTheme.bind(this);
     this.lightTheme = this.lightTheme.bind(this);
     this.updateTodoListTheme = this.updateTodoListTheme.bind(this);
+    this.checkDuplicate = this.checkDuplicate.bind(this);
 
     // event listeners for adding task
     this.todoListContainer.addEventListener("click", this.handleRemoveTask);
@@ -136,10 +137,12 @@ class TodoApp {
       }
     });
   }
-  //first method
   addTask() {
     const taskName = this.inputTextField.value.trim();
     if (!taskName) return;
+    if (this.checkDuplicate(taskName)) {
+      return;
+    }
 
     const task = {
       name: taskName,
@@ -167,6 +170,20 @@ class TodoApp {
     this.updateTaskCount();
     this.inputTextField.value = "";
     this.updateTodoListTheme();
+  }
+  checkDuplicate(input) {
+    const existingTask = this.allTasks.find((task) => task.name === input);
+    if (existingTask) {
+      this.inputTextField.classList.add("vibrate");
+
+      setTimeout(() => {
+        this.inputTextField.classList.remove("vibrate");
+      }, 500);
+
+      return true;
+    }
+
+    return false;
   }
 
   //second method
@@ -211,7 +228,7 @@ class TodoApp {
   }
 
   handleCheckboxChange(event) {
-    const checkbox = event.target; // Get the checkbox that triggered the event
+    const checkbox = event.target;
     const todoListItem = checkbox.closest(".todo-list");
     const todoListName =
       todoListItem.querySelector(".todo-list__name").innerText;

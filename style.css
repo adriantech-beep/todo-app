@@ -125,6 +125,7 @@ body {
   border-radius: 5px;
   background-color: var(--Very-Dark-Desaturated-Blue);
 }
+
 /*input checkbox*/
 input[type="checkbox"] {
   appearance: none;
@@ -158,6 +159,31 @@ input[type="checkbox"]:checked {
 }
 input[type="checkbox"]:checked:after {
   display: block;
+}
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 0);
+  }
+  40% {
+    transform: translate(2px, 0);
+  }
+  60% {
+    transform: translate(-2px, 0);
+  }
+  80% {
+    transform: translate(2px, 0);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.vibrate {
+  display: inline-block;
+  animation: vibrate 1.2s linear;
 }
 .section-options p,
 span {
